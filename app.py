@@ -35,7 +35,7 @@ def get_alerts():
     return jsonify(fetch_alerts())
 
 @app.route("/")
-def index():
+def home():
     return render_template("index.html")
 
 if __name__ == "__main__":
