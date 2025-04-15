@@ -1,0 +1,4 @@
+Flask
+flask-cors
+feedparser
+gunicorn
