@@ -1,5 +1,6 @@
 async function fetchAlerts() {
   const alertsContainer = document.getElementById("alerts");
+  const lastUpdated = document.getElementById("last-updated");
   alertsContainer.innerHTML = "<p>Loading...</p>";
 
   try {
@@ -15,13 +16,18 @@ async function fetchAlerts() {
 
     data.forEach(alert => {
       const div = document.createElement("div");
-      div.className = "alert";
+      div.className = "alert-card";
       div.innerHTML = `
-        <strong>${alert.timestamp}</strong> — <b>${alert.source}</b><br>
-        <a href="${alert.link}" target="_blank">${alert.news}</a>
+        <h3>${alert.source}</h3>
+        <p><strong>${alert.timestamp}</strong></p>
+        <p>${alert.news}</p>
+        <a href="${alert.link}" target="_blank">Read more →</a>
       `;
       alertsContainer.appendChild(div);
     });
+
+    const now = new Date().toLocaleTimeString();
+    lastUpdated.textContent = `Last updated at ${now}`;
 
   } catch (err) {
     alertsContainer.innerHTML = "<p>Error fetching alerts.</p>";
@@ -29,6 +35,5 @@ async function fetchAlerts() {
   }
 }
 
-// Auto-refresh every 30s
 setInterval(fetchAlerts, 30000);
 window.onload = fetchAlerts;
