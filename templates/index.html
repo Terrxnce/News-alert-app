@@ -1,20 +1,26 @@
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Real-Time Market Alerts</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
   <div class="container">
-    <h1>🔔 Real-Time Market Alerts</h1>
-    <button onclick="fetchAlerts()">🔁 Refresh</button>
-    <div id="alerts"></div>
+    <!-- LOGO + HEADER -->
+    <div style="text-align: center;">
+      <img src="{{ url_for('static', filename='slide8.png') }}" alt="Logo" style="max-height: 60px; margin-bottom: 10px;">
+      <h1>🔔 Real-Time Market Alerts</h1>
+      <p id="last-updated" style="font-size: 0.9em; color: #777;"></p>
+      <button onclick="fetchAlerts()">🔁 Refresh</button>
+    </div>
+
+    <!-- ALERTS -->
+    <div id="alerts" class="alerts-list">
+      <p>Loading alerts...</p>
+    </div>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
