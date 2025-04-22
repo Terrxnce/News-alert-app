@@ -1,7 +1,62 @@
-a {
-  color: #00d6ff;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #6f63e7;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.alerts-list {
+  display: grid;
+  gap: 20px;
+}
+
+.alert-card {
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid #0077cc;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.alert-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.alert-card h3 {
+  margin: 0 0 10px;
+  color: #0077cc;
+}
+
+.alert-card p {
+  margin: 4px 0;
+  font-size: 0.95em;
+}
+
+.alert-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #6f63e7;
   text-decoration: none;
 }
-a:hover {
+
+.alert-card a:hover {
   text-decoration: underline;
 }
